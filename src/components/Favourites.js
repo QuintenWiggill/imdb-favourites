@@ -45,6 +45,10 @@ export default function Favourites(props) {
           </Button>
         </Card.Header>
 
+        {favourites.length === 0 && (
+          <h1 className="display-5 text-center">No results to display.</h1>
+        )}
+
         {view === "card" && (
           <Container style={styles.cardContainer}>
             <Row md={3} xs={1} sm={2} lg={4}>

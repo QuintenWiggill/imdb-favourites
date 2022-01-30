@@ -60,10 +60,9 @@ export default function Search(props) {
   return (
     <Container style={styles.container}>
       <Card style={styles.card}>
-        <h1 className="display-1">Search IMDb</h1>
         <InputGroup style={styles.inputGroup}>
           <Form.Control
-            placeholder="Search"
+            placeholder="Search IMDb"
             style={styles.searchBar}
             value={search}
             onChange={handleChange}
@@ -78,7 +77,6 @@ export default function Search(props) {
 
       <Card style={styles.resultCard}>
         <Card.Header>
-          {results.length > 0 && <>Results for: "{search}"</>}
           <div>
             View as
             <Button variant="light" size="sm m-1" onClick={handleChangeView}>
