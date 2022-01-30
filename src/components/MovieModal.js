@@ -50,10 +50,11 @@ export default function MovieModal(props) {
 
   const RatingStars = () => {
     let stars = [];
-    for (let i = 0; i < parseInt(imdbRating); i++) {
+    let i = 0;
+    for (i; i < parseInt(imdbRating); i++) {
       stars.push(<StarFill style={{ fill: "gold" }} />);
     }
-    for (let i = 0; i <= parseInt(10 - imdbRating); i++) {
+    for (i; i < 10; i++) {
       stars.push(<Star style={{ fill: "gold" }} />);
     }
     return <>{stars}</>;
