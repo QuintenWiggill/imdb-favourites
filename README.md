@@ -6,8 +6,10 @@ IMDb favourties is an app that allows you to search IMDb and add any movie/serie
 
 Add your API credentials to an .env file in the root of the application directory.
 
+```
 REACT_APP_API_HOST={api_host}
 REACT_APP_API_KEY={api_key}
+```
 
 ## Available Scripts
 
