@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# IMDb Favourites
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+IMDb favourties is an app that allows you to search IMDb and add any movie/series to your favourites collection.
+
+## API
+
+Add your API credentials to an .env file in the root of the application directory.
+
+REACT_APP_API_HOST={api_host}
+REACT_APP_API_KEY={api_key}
 
 ## Available Scripts
 

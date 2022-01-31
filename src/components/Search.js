@@ -24,6 +24,7 @@ export default function Search(props) {
   const [search, setSearch] = React.useState("");
   const [results, setResults] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [page, setPage] = React.useState(1);
   const view = useStoreState((state) => state.titleView);
   const changeView = useStoreActions((actions) => actions.changeView);
 
@@ -38,9 +39,11 @@ export default function Search(props) {
   };
 
   const handleSearch = () => {
+    // Reset states for new searches
+    setPage(1);
     setResults([]);
     setLoading(true);
-    getMoviesBySearch(search).then((result) => {
+    getMoviesBySearch(search, 1).then((result) => {
       setResults(result.Search ? result.Search : []);
       setLoading(false);
     });
@@ -55,6 +58,15 @@ export default function Search(props) {
 
   const handleChangeView = () => {
     changeView(view === "list" ? "card" : "list");
+  };
+
+  const handleLoadMore = () => {
+    setLoading(true);
+    getMoviesBySearch(search, page + 1).then((result) => {
+      setResults([...results, ...result.Search]);
+      setLoading(false);
+      setPage(page + 1);
+    });
   };
 
   return (
@@ -93,12 +105,6 @@ export default function Search(props) {
           </div>
         </Card.Header>
 
-        {loading && (
-          <Spinner animation="border" role="status" className="mx-auto my-3">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        )}
-
         {results.length === 0 && (
           <h1 className="display-5 text-center">No results to display.</h1>
         )}
@@ -127,6 +133,18 @@ export default function Search(props) {
               ))}
             </ListGroup>
           </Container>
+        )}
+
+        {Boolean(results.length > 0 && !loading) && (
+          <Button onClick={handleLoadMore} className="btn-sm" variant="dark">
+            Load more
+          </Button>
+        )}
+
+        {loading && (
+          <Spinner animation="border" role="status" className="mx-auto my-3">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
         )}
       </Card>
     </Container>

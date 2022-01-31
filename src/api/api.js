@@ -1,6 +1,6 @@
-export const getMoviesBySearch = async (searchTerm) => {
+export const getMoviesBySearch = async (searchTerm, page) => {
   return await fetch(
-    `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchTerm}&r=json&page=1`,
+    `https://movie-database-imdb-alternative.p.rapidapi.com/?s=${searchTerm}&r=json&page=${page}`,
     {
       method: "GET",
       headers: {
