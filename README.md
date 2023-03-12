@@ -1,6 +1,6 @@
 # IMDb Favourites
 
-IMDb favourties is an app that allows you to search IMDb and add any movie/series to your favourites collection.
+IMDb favourties is an app that allows you to search IMDb and add any movie/series to your favourites collection. This project was made as a take home assessment.
 
 ## API
 
